@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>個人簡介</title>
+    </head>
+    <body>
+        <h1>個人履歷</h1>
+
+        <h4>姓名:陳俊呈</h4>
+        <h5>學歷:光華國小，南榮國中，鳳山高中，金門大學</h5>
+        <h6>IG:atria0409</h6>
+        <h7>Gmail:kuanghua030510@gmail.com</h7>
+
+        <pre>
+        興趣:遊戲、音樂、迷因、動漫
+
+        正在學習:C#/html
+
+        </pre>
+    </body>
+</html>
