@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+button
+{
+    border: 5px solid silver;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    font-size: 10px;
+}
+.a
+{
+    background-color: blue;
+    color: aqua;
+}
+.b{
+    background-color: brown;
+    color: chartreuse;
+}
+.c{
+    background-color: bisque;
+    color: darkkhaki;
+}
+.d{
+    background-color: darkcyan;
+    color: darkviolet;
+}
+</style>
+</head>
+<body>
+
+    <button class="a">A</button>
+    <button class="b">B</button>
+    <button class="c">C</button>
+    <button class="d">D</button>
+</body>
+</html>
