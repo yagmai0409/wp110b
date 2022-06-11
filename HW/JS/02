@@ -6,6 +6,5 @@ function a(n)
         i=b*i;
     }
     return i;
-
 }
 console.log(a(5));
