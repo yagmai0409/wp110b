@@ -1,0 +1,16 @@
+function a(n)
+{
+    var i;
+    var k=[];
+    for(i=2;i<=n;i++)
+    {
+        if(n%i==0)
+        {
+            k.push(i);
+            n = n/i;
+            i=2;
+        }
+    }
+    return k;
+}
+console.log(a(45));
