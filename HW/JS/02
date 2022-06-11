@@ -7,4 +7,4 @@ function a(n)
     }
     return i;
 }
-console.log(a(n));
+console.log(a(5));
