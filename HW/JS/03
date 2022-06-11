@@ -11,4 +11,4 @@ fountion a(n)
     if(j==1) return false;
 }
 
-console.log(a(n));
+console.log(a(13));
