@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body{
+  margin:0;
+  display: flex;
+  justify-content: center;
+  height:100vh;
+  text-align: center;
+  background-color: gold;
+  border: 5px silver solid;
+}
+.content{
+  display:flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.cell{
+  background: silver;
+  border:5px solid #6bd1eb;
+  cursor: pointer;
+  width:100px;
+  height:100px;
+}
+.control{
+  max-width:350px;
+}
+.msg{
+  margin:5px auto;
+  display: flex;
+  justify-content: space-around;
+  line-height: 2rem;
+}
+button,span{
+  width:33%;
+}
+</style>
+
+    <div class="content">
+       
+        <div class="content">
+            
+            <div class="row">
+                <img src="yellow.jpg" class="cell" title="yellow" onclick="getcount(0)"/>
+                <img src="yellow.jpg" class="cell" title="yellow" onclick="getcount(1)"/>
+                <img src="yellow.jpg" class="cell" title="yellow" onclick="getcount(2)"/>
+              </div>
+              <div class="row">
+                <img src="yellow.jpg" class="cell" title="yellow" onclick="getcount(3)"/>
+                <img src="yellow.jpg" class="cell" title="yellow" onclick="getcount(4)"/>
+                <img src="yellow.jpg" class="cell" title="yellow" onclick="getcount(5)"/>
+              </div>
+              <div class="row">
+                <img src="yellow.jpg" class="cell" title="yellow" onclick="getcount(6)"/>
+                <img src="yellow.jpg" class="cell" title="yellow" onclick="getcount(7)"/>
+                <img src="yellow.jpg" class="cell" title="yellow" onclick="getcount(8)"/>
+              </div>
+            <div class="control">
+              <div class="msg">
+                <span id="time">剩餘時間：0s</span>
+                <button>遊戲開始</button>
+                <span id="combo">成績分數：0</span>
+              </div>
+              <hr />
+              <b>遊戲說明</b>
+              <p>點擊超壯柴犬獲得分數</p>
+              <hr />
+            </div>
+          </div>
+          <script>
+            var btn=document.getElementsByTagName("button")[0]; //button
+var time=document.getElementById("time"); 
+var combo=document.getElementById("combo"); 
+var animal=document.getElementsByClassName("cell");
+var flag=0; 
+var sec=0,count=0;
+var beYellow=new Array(); 
+btn.addEventListener("click",gamestart); 
+function gamestart(){ 
+  sec=60,count=0,flag=1;
+  time.textContent=`剩餘時間：${sec}`;
+  combo.textContent=`成績分數：${count}`;
+  btn.removeEventListener("click",gamestart); 
+
+  let start=setInterval(()=>{ 
+    if(sec==0){
+      clearInterval(start);
+      flag=0;
+      btn.addEventListener("click",gamestart);
+    }
+    else{
+      sec--;
+      time.textContent=`剩餘時間：${sec}`;
+    }
+  },1000);
+  
+  for(let i=0;i<100;i++){
+    let ontime=Math.floor(Math.random()*57000); 
+    let which=Math.floor(Math.random()*9);  
+    let delay=Math.floor(Math.random()*3)+2; 
+
+    setTimeout(function(){
+      showit(which,delay,i);
+    },ontime);
+  }
+}
+function showit(siWhich,siDelay,siId){ 
+  if(animal[siWhich].title!="yellow"){ 
+    let next=Math.floor(Math.random()*9);  
+
+    setTimeout(function(){
+      showit(next,siDelay,siId);
+    },100);
+  }
+  else{ 
+    animal[siWhich].src="red.jpg";
+    animal[siWhich].style.background="red";
+    animal[siWhich].title="red";
+    animal[siWhich].alt=siId;
+
+    beYellow[siId]=setTimeout(() => { 
+      animal[siWhich].src="yellow.jpg";
+      animal[siWhich].style.background=null;
+      animal[siWhich].title="yellow";
+      animal[siWhich].alt=null;
+    }, siDelay*1000);
+  }
+}
+document.onkeydown=keyboard;
+function keyboard(){
+  if(flag){
+    switch (event.keyCode) {
+      case 103: getcount(0);break;
+      case 104: getcount(1);break;
+      case 105: getcount(2);break;
+      case 100: getcount(3);break;
+      case 101: getcount(4);break;
+      case 102: getcount(5);break;
+      case 97: getcount(6);break;
+      case 98: getcount(7);break;
+      case 99: getcount(8);break;
+    }
+  }
+}
+function getcount(who) { 
+  if(animal[who].title=="red"){ 
+    animal[who].src="green.jpg";
+    animal[who].style.background="green";
+    animal[who].title="green";
+
+  
+    count++;
+    combo.textContent=`成績分數：${count}`;
+
+    id=animal[who].alt; 
+    clearTimeout(beYellow[id]); 
+    animal[who].alt=null;
+
+    setTimeout(() => { 
+      animal[who].src="yellow.jpg";
+      animal[who].style.background=null;
+      animal[who].title="yellow";
+    }, 1000);
+  }
+}
+function keyboard() {
+  switch (event.keyCode) {
+    case 97:
+      getcombo(6);break;
+    case 98:
+      getcombo(7);break;
+    case 99:
+      getcombo(8);break;
+    case 100:
+      getcombo(3);break;
+    case 101:
+      getcombo(4);break;
+    case 102:
+      getcombo(5);break;
+    case 103:
+      getcombo(0);break;
+    case 104:
+      getcombo(1);break;
+    case 105:
+      getcombo(2);break;
+  }
+}
+          </script>
+</html>
