@@ -14,23 +14,23 @@ class point
 
     neg()
     {
-        let a1 = [];
-        for (let i=0 ; i < this.a.length ; i++) a1[i]=this.a[i] * -1;
-        return a1;
+        let a8 = [];
+        for (let i=0 ; i < this.a.length ; i++) a8[i]=this.a[i] * -1;
+        return a8;
     }
 
     add(p2)
     {   
-        let a2 = [];
-        for (let i = 0 ; i < this.a.length ; i++) a2[i] = this.a[i] + p2[i];
-        return a2;
+        let a9 = [];
+        for (let i = 0 ; i < this.a.length ; i++) a9[i] = this.a[i] + p2[i];
+        return a9;
     }
 
     sub(p2)
     {
-        let a3=[];
-        for(let i = 0 ; i < this.a.length ; i++) a3[i] = this.a[i] - p2.a[i];
-        return new point(a3);
+        let a10=[];
+        for(let i = 0 ; i < this.a.length ; i++) a10[i] = this.a[i] - p2.a[i];
+        return new point(a10);
     }
 
     dot(p2)
